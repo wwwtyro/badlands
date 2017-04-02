@@ -1,0 +1,36 @@
+{
+  "name": "landscape",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "budo -H 0.0.0.0 index.js:bundle.js --live",
+    "build": "browserify -o bundle.js index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-plugin-transform-async-to-generator": "^6.22.0",
+    "filesaver.js": "^0.2.0",
+    "gl-matrix": "^2.3.2",
+    "glsl-atmosphere": "^2.0.0",
+    "glslify": "^6.0.2",
+    "regl": "^1.3.0",
+    "babelify": "^7.3.0",
+    "budo": "^9.4.7",
+    "sprintf": "^0.1.5"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "plugins": [
+            "transform-async-to-generator"
+          ]
+        }
+      ],
+      "glslify"
+    ]
+  }
+}
